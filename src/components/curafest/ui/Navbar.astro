@@ -1,0 +1,29 @@
+---
+import { Picture } from "astro:assets";
+
+import alnLogo from "@/assets/images/alnLogo.svg";
+import alnSlogan from "@/assets/images/alnSlogan.svg";
+---
+
+<nav
+  class="w-full py-4 px-6 flex justify-between items-center max-w-6xl mx-auto"
+>
+  <Picture
+    src={alnLogo}
+    alt={"Diputada Alejandra López Noriega"}
+    width={300}
+    height={300}
+    class=``
+    formats={["avif", "webp"]}
+  />
+  <div class="hidden md:block">
+    <Picture
+      src={alnSlogan}
+      alt={"Diputada Alejandra López Noriega"}
+      width={300}
+      height={300}
+      class=``
+      formats={["avif", "webp"]}
+    />
+  </div>
+</nav>

@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Handlee&family=Montserrat:wght@400;700;900&display=swap");
+@import "tailwindcss";
+
+@theme{
+
+    /* Fuente Principal (Títulos y Textos) */
+    --font-sans: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    /* Fuente Manuscrita (Notas y Detalles) */
+    --font-hand: "Handlee", cursive;
+
+
+    --color-ale-pink: #E91E63;  /* Rosa Mexicano Intenso */
+    --color-ale-purple: #4A148C;/* Morado Oscuro */
+    --color-ale-orange: #FF5722;/* Naranja Acento */
+    --color-ale-paper: #F9F7F2; /* Fondo Crema/Cartulina */
+
+
+}

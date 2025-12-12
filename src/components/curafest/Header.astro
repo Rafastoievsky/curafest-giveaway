@@ -1,0 +1,87 @@
+---
+import { Picture } from "astro:assets";
+
+import alnImg from "@/assets/images/aln.png"
+import curaFest from "@/assets/images/gycuraFest.png"
+---
+
+    <header class="relative w-full max-w-6xl mx-auto px-6 py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        
+        <div class="relative z-10 space-y-6">
+            <div class="absolute -top-10 left-0 transform -rotate-6 hidden md:block">
+                <span class="font-hand text-ale-orange text-2xl">¡Solo para Hermosillo!</span>
+                <svg class="w-8 h-8 text-ale-orange inline-block ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </div>
+
+            <!-- FOTO DIPUTADA (NUEVO) -->
+            <!-- Sustituye el src por la foto real de la diputada (ej. foto-alejandra.png) -->
+            <div class="flex items-center gap-4">
+                <div class="relative group cursor-pointer">
+                    <div class="absolute inset-0 bg-ale-pink rounded-full blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+                            <Picture
+                                src={alnImg}
+                                alt={"Diputada Alejandra López Noriega"}
+                                width={500}
+                                height={500}
+                                class=`relative size-24 md:w-28 md:h-28 rounded-full 
+                                border-4 border-white shadow-xl object-cover 
+                                transform transition group-hover:scale-105`
+                                formats={["avif", "webp"]}
+                            />
+                    
+                </div>
+                <!-- Burbuja de diálogo opcional -->
+                <div class="bg-white px-4 py-2 rounded-xl rounded-tl-none shadow-md border border-gray-100 transform rotate-2 hidden sm:block">
+                    <p class="font-hand text-ale-pink font-bold text-lg">¡Hola, te invito a participar!</p>
+                </div>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-black text-ale-purple leading-tight">
+                GANA 2 BOLETOS <br>
+                <span class="text-transparent bg-clip-text bg-linear-to-r from-ale-pink to-ale-orange">VIP CURA FEST</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-gray-600 font-medium">
+                Esta Navidad quiero consentirte. Participa para ver a <strong class="text-ale-purple">Carín León</strong> desde la zona <span class="bg-yellow-100 text-ale-orange px-2 py-1 rounded font-bold border-b-2 border-ale-orange">VIP Boca Chueca 1</span> totalmente gratis.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                <a href="#registro" class="btn-hover bg-ale-orange text-white text-center px-8 py-4 rounded-full font-bold text-lg shadow-lg uppercase tracking-wide w-full sm:w-auto">
+                    ¡Quiero Participar!
+                </a>
+                <div class="flex items-center justify-center gap-2 text-ale-purple font-hand font-black text-2xl">
+                    <span>👑</span>
+                    <span>Sorteo: 6 de Enero</span>
+                </div>
+            </div>
+        </div>
+
+<div class="relative group">
+    <div class="absolute top-0 right-0 w-full h-full bg-ale-pink/10 rounded-[3rem] transform rotate-3 scale-105 z-0"></div>
+    
+    <div class="relative z-10 bg-white p-4 rounded-3xl shadow-2xl border-4 border-ale-pink/20 rotate-[-2deg] transition-transform duration-300 hover:rotate-0">
+        
+        <div class="bg-gray-900 h-64 md:h-80 rounded-2xl relative overflow-hidden group">
+            
+            <div class="absolute top-0 left-0 w-full h-2 bg-ale-orange z-10"></div>
+
+            <Picture
+                src={curaFest}
+                alt={"Giveaway Cura Fest"}
+                width={1000}
+                height={640}
+                class="absolute inset-0 w-full h-full object-cover z-0"
+                formats={["avif", "webp"]}
+            />
+
+            <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-ale-pink rounded-full opacity-20 blur-xl z-10 pointer-events-none"></div>
+        </div>
+
+        <div class="mt-4 text-center">
+            <p class="font-hand text-ale-purple text-xl">"El mejor regalo para cerrar el año"</p>
+        </div>
+    </div>
+
+    <svg class="absolute -bottom-16 -left-14 w-24 h-24 text-ale-purple transform -rotate-12 hidden md:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+</div>
+    </header>

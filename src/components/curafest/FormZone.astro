@@ -1,0 +1,105 @@
+---
+import FormCuraFest from "./FormCuraFest.astro";
+---
+
+<main id="registro" class="relative py-16 bg-white border-t-4 border-ale-pink">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <span
+        class="bg-ale-purple text-white px-3 py-1 rounded-full text-sm font-bold tracking-wider uppercase mb-2 inline-block"
+        >Registro Oficial</span
+      >
+      <h2 class="text-3xl md:text-4xl font-black text-gray-800">
+        Completa tus datos
+      </h2>
+      <p class="font-hand text-ale-pink text-xl mt-2">
+        ¡Es muy fácil y rápido!
+      </p>
+    </div>
+
+    <form
+      class="bg-ale-paper p-8 rounded-3xl shadow-xl border border-gray-100 relative"
+    >
+      <div
+        class="absolute top-0 right-0 -mt-3 -mr-3 bg-ale-orange text-white w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg transform rotate-12"
+      >
+        ✍️
+      </div>
+      <FormCuraFest />
+    </form>
+  </div>
+</main>
+<script>
+  import { actions, isInputError } from "astro:actions";
+  import { navigate } from "astro:transitions/client";
+  import { Notyf } from "notyf";
+
+  const form = document.querySelector("form");
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formElement = e.target as HTMLFormElement;
+      const formData = new FormData(formElement);
+
+      console.log("📋 Datos crudos:", [...formData.entries()]);
+      console.log("📦 Objeto:", Object.fromEntries(formData));
+
+      const notyf = new Notyf({
+        position: { x: "right", y: "top" },
+        duration: 4500,
+        ripple: false,
+        dismissible: true,
+      });
+
+
+
+      try {
+        const payload = {
+          giveaway_name: String(formData.get("giveaway_name") ?? ""),
+          nombre: String(formData.get("nombre") ?? ""),
+          apaterno: String(formData.get("apaterno") ?? ""),
+          amaterno: String(formData.get("amaterno") ?? ""),
+          celular: String(formData.get("celular") ?? ""),
+          email: String(formData.get("email") ?? ""),
+          calle: String(formData.get("calle") ?? ""),
+          num_ext: String(formData.get("num_ext") ?? ""),
+          colonia: String(formData.get("colonia") ?? ""),
+          poblacion: String(formData.get("poblacion") ?? ""),
+          comoseentero: String(formData.get("comoseentero") ?? ""),
+        };
+        const { data, error } = await actions.toBackend.createRegistro(payload);  
+
+        // 🧩 Errores de Zod
+        if (isInputError(error)) {
+          error.issues.forEach((issue) => {
+            notyf.error(issue.message);
+          });
+          return;
+        }
+        // ❌ Error genérico del backend
+        if (data?.error) {
+          notyf.error(data.message ?? "Error al registrar");
+          return;
+        }
+
+        // ✅ Éxito
+        if (data?.message) {
+          notyf.success(data.message);
+          setTimeout(() => {
+            navigate("/registro-listo");
+          }, 3000);
+        }
+      } catch (err) {
+        console.error("Action error:", err);
+        notyf.error("Ocurrió un error inesperado. Intenta nuevamente.");
+      }
+    });
+  }
+</script>
+
+
+
+
+
+
+
