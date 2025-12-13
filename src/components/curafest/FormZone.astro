@@ -33,6 +33,7 @@ import FormCuraFest from "./FormCuraFest.astro";
   import { actions, isInputError } from "astro:actions";
   import { navigate } from "astro:transitions/client";
   import { Notyf } from "notyf";
+  import "notyf/notyf.min.css";
 
   const form = document.querySelector("form");
   if (form) {
@@ -74,11 +75,14 @@ import FormCuraFest from "./FormCuraFest.astro";
           error.issues.forEach((issue) => {
             notyf.error(issue.message);
           });
+          window.dispatchEvent(new Event("stop-submit-loading"));
+
           return;
         }
         // ❌ Error genérico del backend
         if (data?.error) {
           notyf.error(data.message ?? "Error al registrar");
+          window.dispatchEvent(new Event("stop-submit-loading"));
           return;
         }
 
@@ -92,6 +96,7 @@ import FormCuraFest from "./FormCuraFest.astro";
       } catch (err) {
         console.error("Action error:", err);
         notyf.error("Ocurrió un error inesperado. Intenta nuevamente.");
+        window.dispatchEvent(new Event("stop-submit-loading"));
       }
     });
   }
