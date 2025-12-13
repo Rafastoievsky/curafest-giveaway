@@ -2,6 +2,24 @@
 import Navbar from "../components/curafest/ui/Navbar.astro";
 import Footer from "../components/curafest/Footer.astro";
 import "../styles/global.css";
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+}
+
+// Valores por defecto (Fallback)
+const { 
+	title = "¡Gana Boletos VIP para el Cura Fest! 🤠 | Sorteo Navideño",
+	description = "¿Quieres ver a Carín León en Zona VIP? 🎄 Participa GRATIS en el Gran Sorteo Navideño de la Diputada Alejandra López Noriega. Exclusivo para residentes de Hermosillo.",
+	image = "/images/gyCuraFest.png" // Asegúrate de poner tu imagen en la carpeta public/images/
+} = Astro.props;
+
+// Obtener la URL completa actual para el canonical y Open Graph
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image, Astro.site);
+
 ---
 
 <!doctype html>
@@ -11,7 +29,63 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/icon.png" />
     <meta name="generator" content={Astro.generator} />
+
+		<!-- ============================================ -->
+		<!-- SEO BÁSICO -->
+		<!-- ============================================ -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="keywords" content="Sorteo Alejandra López Noriega, Boletos Carín León Gratis, Cura Fest Hermosillo, Giveaway Navidad Sonora, Diputada Alejandra, Boletos VIP Boca Chueca">
+		<meta name="author" content="Alejandra López Noriega">
+		<meta name="robots" content="index, follow">
+
+		<!-- ============================================ -->
+		<!-- OPEN GRAPH (Facebook, WhatsApp, LinkedIn) -->
+		<!-- ============================================ -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content={canonicalURL}>
+		<meta property="og:title" content={title}>
+		<meta property="og:description" content={description}>
+		<meta property="og:image" content={imageURL}>
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="630">
+		<meta property="og:locale" content="es_MX">
+		<meta property="og:site_name" content="Sorteo Navideño Alejandra López Noriega">
+
+		<!-- ============================================ -->
+		<!-- TWITTER CARDS (X) -->
+		<!-- ============================================ -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content={title}>
+		<meta name="twitter:description" content={description}>
+		<meta name="twitter:image" content={imageURL}>
+
     <title>ALN Giveaway Cura Fest</title>
+    		<!-- ============================================ -->
+		<!-- FACEBOOK PIXEL CODE -->
+		<!-- ============================================ -->
+		<script is:inline>
+      /* @ts-ignore */
+      (function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)})(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      
+      // ⚠️ REEMPLAZA 'TU-ID-DE-PIXEL' CON TU NÚMERO REAL ⚠️
+      /* @ts-ignore */
+      fbq('init', '594433199218146'); 
+      /* @ts-ignore */
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=TU-ID-DE-PIXEL&ev=PageView&noscript=1"
+    /></noscript>
+      <!-- End Facebook Pixel Code -->
+
   </head>
   
   <body
