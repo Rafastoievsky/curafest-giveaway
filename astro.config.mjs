@@ -14,5 +14,6 @@ export default defineConfig({
   adapter: netlify(),
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+  site: 'https://curafest-giveaway.alejandralopeznoriega.com',
 });
