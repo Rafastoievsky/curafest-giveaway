@@ -6,7 +6,7 @@ const AgreeSubmit = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const onHandlerChange = () => {
-    setActive(false);
+    setActive(!active);
   };
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const AgreeSubmit = () => {
           disabled={active || isLoading}
           className={`w-full font-black text-xl py-4 rounded-xl shadow-lg
             transition-all duration-300 flex items-center justify-center gap-3
-            bg-ale-orange text-white
+            bg-ale-orange text-white cursor-pointer
             hover:bg-orange-600 hover:-translate-y-1
             disabled:bg-gray-300 disabled:text-gray-500
             disabled:cursor-not-allowed disabled:shadow-none

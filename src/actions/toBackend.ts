@@ -49,7 +49,7 @@ export const toBackend = {
                 return {
                 error: true,
                 message:
-                    "No se pudo registrar GiveAway. Por favor, intente más tarde.",
+                    "Error al registrar GiveAway:"+ e
                 };
             }
                 
