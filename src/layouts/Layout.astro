@@ -11,14 +11,14 @@ interface Props {
 
 // Valores por defecto (Fallback)
 const { 
-	title = "¡Gana Boletos VIP para el Cura Fest! 🤠 | Sorteo Navideño",
-	description = "¿Quieres ver a Carín León en Zona VIP? 🎄 Participa GRATIS en el Gran Sorteo Navideño de la Diputada Alejandra López Noriega. Exclusivo para residentes de Hermosillo.",
-	image = "/images/gyCuraFest.png" // Asegúrate de poner tu imagen en la carpeta public/images/
+	title = "¡Gana Boletos VIP para Chayanne!",
+	description = "¿Quieres ver a Chayanne en Zona VIP? Participa GRATIS en el Gran Sorteo de la Diputada Alejandra López Noriega. Exclusivo para residentes de Hermosillo.",
+	image = "/images/chayanneGiveaway.png" 
 } = Astro.props;
 
 // Obtener la URL completa actual para el canonical y Open Graph
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const imageURL = new URL(image, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url.origin);
+const imageURL = new URL(image, Astro.url.origin).toString();
 
 ---
 
@@ -35,7 +35,7 @@ const imageURL = new URL(image, Astro.site);
 		<!-- ============================================ -->
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<meta name="keywords" content="Sorteo Alejandra López Noriega, Boletos Carín León Gratis, Cura Fest Hermosillo, Giveaway Navidad Sonora, Diputada Alejandra, Boletos VIP Boca Chueca">
+		<meta name="keywords" content="Sorteo Alejandra López Noriega, Boletos Chayanne Gratis, en Hermosillo, Giveaway Hermosillo,Sonora, Diputada Alejandra, Boletos VIP Chayanne">
 		<meta name="author" content="Alejandra López Noriega">
 		<meta name="robots" content="index, follow">
 
@@ -50,7 +50,7 @@ const imageURL = new URL(image, Astro.site);
 		<meta property="og:image:width" content="1200">
 		<meta property="og:image:height" content="630">
 		<meta property="og:locale" content="es_MX">
-		<meta property="og:site_name" content="Sorteo Navideño Alejandra López Noriega">
+		<meta property="og:site_name" content="Sorteo Alejandra López Noriega">
 
 		<!-- ============================================ -->
 		<!-- TWITTER CARDS (X) -->
@@ -60,7 +60,7 @@ const imageURL = new URL(image, Astro.site);
 		<meta name="twitter:description" content={description}>
 		<meta name="twitter:image" content={imageURL}>
 
-    <title>ALN Giveaway Cura Fest</title>
+    <title>ALN Giveaway Chayanne</title>
     		<!-- ============================================ -->
 		<!-- FACEBOOK PIXEL CODE -->
 		<!-- ============================================ -->

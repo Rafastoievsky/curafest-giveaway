@@ -1,0 +1,136 @@
+---
+import { Picture } from "astro:assets";
+import Requisitos from "../curafest/Requisitos.astro";
+import aln from "@/assets/images/aln.png";
+import completo from "@/assets/images/alnCompleto.png";
+---
+
+<!-- Contenedor con Imagen de Fondo (Abarca Hero, Contenido y Formulario) -->
+<div
+  class="main-promo-bg rounded-[40px] md:rounded-[60px] overflow-hidden shadow-2xl 
+  relative border border-white/20"
+>
+  <!-- Overlay oscuro sutil para legibilidad superior -->
+  <div
+    class="absolute inset-0 bg-linear-to-b from-purple-900/40 via-transparent to-purple-900/20
+     pointer-events-none"
+  >
+  </div>
+
+  <div class="relative z-10 p-6 pb-0 md:p-12 md:pb-0 flex-grow">
+    <!-- 2. Hero Section -->
+    <div class="flex items-center justify-end md:justify-start gap-4 mb-6">
+      <div class="relative group cursor-pointer">
+        <div
+          class="absoute inset-0 bg-ale-pink rounded-full blur opacity-30 
+          group-hover:opacity-50 transition duration-300"
+        >
+        </div>
+        <Picture
+          src={aln}
+          alt={"Diputada Alejandra López Noriega"}
+          width={500}
+          height={500}
+          class=`relative size-24 md:w-28 md:h-28 rounded-full 
+                              border-4 border-white shadow-xl object-cover 
+                              transform transition group-hover:scale-105`
+          formats={["avif", "webp"]}
+        />
+      </div>
+      <!-- Burbuja de diálogo opcional -->
+      <div
+        class="bg-white px-4 py-2 rounded-xl rounded-tl-none shadow-md border border-gray-100 transform rotate-2 hidden sm:block"
+      >
+        <p class="font-hand text-ale-pink font-bold text-lg">
+          ¡Hola, te invito a participar!
+        </p>
+      </div>
+    </div>
+    <section class="text-left mb-12">
+      <div class="text-center md:w-[50%]">
+          <h2
+            class="text-yellow-400 font-black text-3xl md:text-5xl uppercase text-shadow-gold mb-2"
+          >
+            GANA
+          </h2>
+          <h1
+            class="text-white font-black text-5xl md:text-7xl uppercase leading-none mb-4 drop-shadow-lg"
+          >
+            <span class="block text-4xl md:text-6xl">2 BOLETOS VIP</span>
+            <span
+              class="text-yellow-400 font-black text-3xl md:text-5xl uppercase text-shadow-gold mb-2"
+              >PARA</span
+            >
+            <span class="block text-pink-100">CHAYANNE</span>
+            <div
+              class="flex items-center justify-center gap-2 text-pink-100 font-hand font-black text-2xl"
+            >
+              <span>👑</span>
+              <span>Sorteo: 27 de Abril</span>
+            </div>
+          </h1>
+    
+          <a
+            href="#registro"
+            class="bg-linear-to-r from-yellow-300 via-yellow-500 to-orange-400 text-purple-900 font-black py-4 px-8 rounded-full shadow-2xl transform transition hover:scale-105 active:scale-95 mb-8 text-lg md:text-xl uppercase"
+          >
+            ¡QUIERO MIS BOLETOS VIP! »
+          </a>
+    
+  
+        
+      </div>  
+    </section>
+
+    <!-- 3. Contenido Principal (Formulario y Fotos) -->
+    <div class="grid md:grid-cols-2 gap-8 items-end relative mt-24">
+      <!-- Imagen de la Candidata (Izquierda) -->
+      <div class="relative hidden md:flex justify-start items-end">
+        <Picture
+          src={completo}
+          alt={"Giveaway ALN"}
+          width={1000}
+          height={1200}
+          class="max-h-[850px] w-auto drop-shadow-2xl object-contain align-bottom block transform -scale-x-100"
+          formats={["avif", "webp"]}
+        />
+      </div>
+
+      <!-- 4. Area de Formulario (Derecha) -->
+      <Requisitos />
+    </div>
+  </div>
+</div>
+<style>
+  body {
+    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(135deg, #7e22ce 0%, #a855f7 50%, #d946ef 100%);
+  }
+  .text-shadow-gold {
+    text-shadow:
+      2px 2px 4px rgba(0, 0, 0, 0.3),
+      0 0 10px rgba(254, 240, 138, 0.5);
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .confetti-overlay {
+    background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+  }
+  .main-promo-bg {
+    background-image: url("../../assets/images/bgChayanne.webp");
+    background-size: cover;
+    background-position: right top;
+    background-repeat: no-repeat;
+  }
+    /* Media query para pantallas medianas y grandes */
+    @media (min-width: 768px) {
+        .main-promo-bg {
+            background-position: center top;
+        }
+    }
+</style>

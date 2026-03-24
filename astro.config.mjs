@@ -15,5 +15,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: 'https://curafest-giveaway.alejandralopeznoriega.com',
+  site: 'https://chayanne-giveaway.alejandralopeznoriega.com',
 });
