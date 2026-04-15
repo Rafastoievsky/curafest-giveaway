@@ -20,6 +20,8 @@ export const toBackend = {
             formData.append('calle', input.calle.toLocaleUpperCase())
             formData.append('num_ext', input.num_ext)
             formData.append('colonia', input.colonia.toLocaleUpperCase())
+            formData.append('colonia_id', input.colonia_id ?? '')
+            formData.append('colonia_no_encontrada', input.colonia_no_encontrada ?? '0')
             formData.append('poblacion', input.poblacion.toLocaleUpperCase())
             formData.append('comoseentero', input.comoseentero)
 

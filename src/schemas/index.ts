@@ -15,6 +15,8 @@ export const GiveawaysSchema = z.object({
   calle: z.string(),
   num_ext: z.string(),
   colonia: z.string(),
+  colonia_id: z.string().optional().default(""),
+  colonia_no_encontrada: z.string().optional().default("0"),
   poblacion: z.string().nullable(),
   comoseentero: z.string().nullable(),
   created_at: z.coerce.date(),
@@ -58,6 +60,8 @@ export const CreateGiveawaySchema = z.object({
         nullToEmptyString, 
         z.string().min(1, {message: 'El Campo colonia no puede ir vacio'})
     ),
+  colonia_id: z.string().optional().default(""),
+  colonia_no_encontrada: z.string().optional().default("0"),
   poblacion: z.preprocess(    
         nullToEmptyString, 
         z.string().min(1, {message: 'El Campo Localidad no puede ir vacio'})

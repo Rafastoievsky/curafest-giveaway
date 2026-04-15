@@ -1,5 +1,7 @@
 ---
-import FormCuraFest from "./FormCuraFest.astro";
+import Formulario from "./Formulario.astro";
+
+
 ---
 
 <main id="registro" class="relative py-16 bg-white border-t-4 border-ale-pink">
@@ -25,7 +27,7 @@ import FormCuraFest from "./FormCuraFest.astro";
       >
         ✍️
       </div>
-      <FormCuraFest />
+      <Formulario />
     </form>
   </div>
 </main>
@@ -42,8 +44,8 @@ import FormCuraFest from "./FormCuraFest.astro";
       const formElement = e.target as HTMLFormElement;
       const formData = new FormData(formElement);
 
-      console.log("📋 Datos crudos:", [...formData.entries()]);
-      console.log("📦 Objeto:", Object.fromEntries(formData));
+/*       console.log("📋 Datos crudos:", [...formData.entries()]);
+      console.log("📦 Objeto:", Object.fromEntries(formData)); */
 
       const notyf = new Notyf({
         position: { x: "right", y: "top" },
@@ -92,7 +94,7 @@ import FormCuraFest from "./FormCuraFest.astro";
         if (data?.message) {
           notyf.success(data.message);
           setTimeout(() => {
-            navigate("/registro-listo");
+            navigate("/registro-dia-madres-listo");
           }, 3000);
         }
       } catch (err) {

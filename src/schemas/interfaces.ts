@@ -11,6 +11,8 @@ export interface Giveaways {
     calle:         string;
     num_ext:       string;
     colonia:       string;
+    colonia_id:    string | null;
+    colonia_no_encontrada: string | null;
     comoseentero:  string | null;
     created_at:    Date;
     updated_at:    Date;

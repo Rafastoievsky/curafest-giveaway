@@ -1,9 +1,7 @@
 ---
-import ColoniaAutocomplete from "../diamadres/ColoniaAutocomplete";
-import AgreeSubmit from "./formItems/AgreeSubmit";
-
+import AgreeSubmit from "../curafest/formItems/AgreeSubmit";
+import ColoniaAutocomplete from "./ColoniaAutocomplete"
 import { colonias } from "@/helpers/constants";
-
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -14,7 +12,6 @@ import { colonias } from "@/helpers/constants";
     <input
       type="text"
       name="nombre"
-
       class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-ale-pink focus:ring-0 outline-none transition-colors bg-white"
       placeholder="Ej. María Fernanda"
     />
@@ -26,7 +23,6 @@ import { colonias } from "@/helpers/constants";
     <input
       type="text"
       name="apaterno"
-
       class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-ale-pink focus:ring-0 outline-none transition-colors bg-white"
       placeholder="López"
     />
@@ -38,7 +34,6 @@ import { colonias } from "@/helpers/constants";
     <input
       type="text"
       name="amaterno"
-
       class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-ale-pink focus:ring-0 outline-none transition-colors bg-white"
       placeholder="Pérez"
     />
@@ -52,7 +47,6 @@ import { colonias } from "@/helpers/constants";
       type="tel"
       name="celular"
       pattern="[0-9]{10}"
-
       class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-ale-pink focus:ring-0 outline-none transition-colors bg-white"
       placeholder="662..."
     />
@@ -64,7 +58,6 @@ import { colonias } from "@/helpers/constants";
     <input
       name="email"
       type="email"
-
       class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-ale-pink focus:ring-0 outline-none transition-colors bg-white"
       placeholder="tu@correo.com"
     />
@@ -77,7 +70,6 @@ import { colonias } from "@/helpers/constants";
     >
     <select
       name="poblacion"
-
       class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-ale-pink focus:ring-0 outline-none transition-colors bg-white text-gray-700"
     >
       <option value="" disabled selected>Selecciona tu localidad</option>
@@ -88,7 +80,9 @@ import { colonias } from "@/helpers/constants";
       <option value="La Victoria">La Victoria</option>
       <option value="El Tazajal">El Tazajal</option>
       <option value="Molino de Camou">Molino de Camou</option>
-      <option value="Alejandro Carrillo Marcor">Alejandro Carrillo Marcor</option>
+      <option value="Alejandro Carrillo Marcor"
+        >Alejandro Carrillo Marcor</option
+      >
       <option value="Zamora">Zamora</option>
       <option value="El Tronconal">El Tronconal</option>
     </select>
@@ -109,7 +103,6 @@ import { colonias } from "@/helpers/constants";
       <input
         type="text"
         name="calle"
-  
         class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-ale-pink focus:ring-0 outline-none transition-colors bg-white"
       />
     </div>
@@ -120,13 +113,11 @@ import { colonias } from "@/helpers/constants";
       <input
         type="text"
         name="num_ext"
-  
         class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-ale-pink focus:ring-0 outline-none transition-colors bg-white"
       />
     </div>
   </div>
-  <input type="hidden" name="giveaway_name" value="chayanne2026">
-
+  <input type="hidden" name="giveaway_name" value="diamadres2026" />
 
   <!-- NUEVO CAMPO: Cómo se enteró -->
   <div class="md:col-span-2 mt-2">
@@ -135,7 +126,6 @@ import { colonias } from "@/helpers/constants";
     >
     <select
       name="comoseentero"
-
       class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-ale-pink focus:ring-0 outline-none transition-colors bg-white text-gray-700"
     >
       <option value="" disabled selected>Elige una opción</option>
@@ -146,12 +136,5 @@ import { colonias } from "@/helpers/constants";
       <option value="amigo_amiga">Me comentó una amiga/amigo</option>
     </select>
   </div>
-
-
-
-
-
 </div>
 <AgreeSubmit client:only="react" />
-
-

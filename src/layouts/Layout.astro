@@ -11,8 +11,8 @@ interface Props {
 
 // Valores por defecto (Fallback)
 const { 
-	title = "¡Gana Boletos VIP para Chayanne!",
-	description = "¿Quieres ver a Chayanne en Zona VIP? Participa GRATIS en el Gran Sorteo de la Diputada Alejandra López Noriega. Exclusivo para residentes de Hermosillo.",
+	title = "¡Gana Boletos!",
+	description = " Participa GRATIS en el Gran Sorteo de la Diputada Alejandra López Noriega. Exclusivo para residentes de Hermosillo.",
 	image = "/images/chayanneGiveaway.png" 
 } = Astro.props;
 
@@ -35,7 +35,7 @@ const imageURL = new URL(image, Astro.url.origin).toString();
 		<!-- ============================================ -->
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<meta name="keywords" content="Sorteo Alejandra López Noriega, Boletos Chayanne Gratis, en Hermosillo, Giveaway Hermosillo,Sonora, Diputada Alejandra, Boletos VIP Chayanne">
+		<meta name="keywords" content="Sorteo Alejandra López Noriega, Boletos Gratis, en Hermosillo, Giveaway Hermosillo,Sonora, Diputada Alejandra, Boletos VIP Chayanne">
 		<meta name="author" content="Alejandra López Noriega">
 		<meta name="robots" content="index, follow">
 
